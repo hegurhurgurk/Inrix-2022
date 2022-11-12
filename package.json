@@ -1,5 +1,23 @@
 {
   "dependencies": {
+    "json": "^11.0.0",
     "node-fetch": "^3.3.0"
-  }
+  },
+  "name": "inrix-2022",
+  "version": "1.0.0",
+  "description": "this will be where all the API stuff goes down",
+  "main": "grabber.js",
+  "scripts": {
+    "test": "node grabber.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hegurhurgurk/Inrix-2022.git"
+  },
+  "author": "cameron greene",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hegurhurgurk/Inrix-2022/issues"
+  },
+  "homepage": "https://github.com/hegurhurgurk/Inrix-2022#readme"
 }

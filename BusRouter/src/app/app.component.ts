@@ -7,10 +7,15 @@ import { ViewChild } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
+
+
 export class AppComponent implements AfterViewInit{
   title = 'BusRouter';
   @ViewChild('map') mapElement: any;
   map: google.maps.Map | undefined;
+  
   ngAfterViewInit(): void {
     const mapProperties = {
          center: new google.maps.LatLng(37.7749, -122.4194),
@@ -18,5 +23,30 @@ export class AppComponent implements AfterViewInit{
          mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     this.map = new google.maps.Map(this.mapElement.nativeElement,    mapProperties);
+    this.addMarker(1,{ lat: 37.7749, lng: -122.4194}, this.map);
+    this.addMarker(2,{ lat: 37.7750, lng: -122.4194}, this.map);
+    
  }
+
+  addMarker(color: any,position: any, map: any) {
+    if (color==1){
+      const marker = new google.maps.Marker({
+          position: position,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          map: map
+      });
+    }
+    else if (color==2){
+      const marker = new google.maps.Marker({
+        position: position,
+        icon: {
+          url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+        },
+        map: map
+    });
+    }
+  }
 }
+ 

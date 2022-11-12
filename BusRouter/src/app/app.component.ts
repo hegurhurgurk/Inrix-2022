@@ -23,18 +23,30 @@ export class AppComponent implements AfterViewInit{
          mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     this.map = new google.maps.Map(this.mapElement.nativeElement,    mapProperties);
-    this.addMarker(this.map)
+    this.addMarker(1,{ lat: 37.7749, lng: -122.4194}, this.map);
+    this.addMarker(2,{ lat: 37.7750, lng: -122.4194}, this.map);
     
  }
 
-  addMarker(map: any) {
-    const marker = new google.maps.Marker({
-        position: { lat: 37.7749, lng: -122.4194},
+  addMarker(color: any,position: any, map: any) {
+    if (color==1){
+      const marker = new google.maps.Marker({
+          position: position,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          map: map
+      });
+    }
+    else if (color==2){
+      const marker = new google.maps.Marker({
+        position: position,
         icon: {
-          url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
         },
         map: map
     });
+    }
   }
 }
  

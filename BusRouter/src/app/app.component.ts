@@ -13,7 +13,7 @@ export class AppComponent implements AfterViewInit{
   map: google.maps.Map | undefined;
   ngAfterViewInit(): void {
     const mapProperties = {
-         center: new google.maps.LatLng(35.2271, -80.8431),
+         center: new google.maps.LatLng(37.7749, -122.4194),
          zoom: 15,
          mapTypeId: google.maps.MapTypeId.ROADMAP
     };

@@ -11,7 +11,7 @@
     "test": "node grabber.js"
   },
   "repository": {
-    "type": "git",
+    "type": "module",
     "url": "git+https://github.com/hegurhurgurk/Inrix-2022.git"
   },
   "author": "cameron greene",

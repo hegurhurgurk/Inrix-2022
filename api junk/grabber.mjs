@@ -21,7 +21,7 @@ async function theBus(){
   for (let i=0;i<dataLength; i++){
       busData.push([test[i].latitude, test[i].longitude, test[i].frequency]);
       
-  // }
+   }
   // console.log(busData);
   // return busData;
   console.log("hi");

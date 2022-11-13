@@ -2,13 +2,13 @@ body {
     background-color: rgb(179, 7, 56);
   }
 h1 {
-    color: rgb(91,103,112);
+    color: white;
     margin: -20px;
     padding: 30px;
 }
   
   p {
-    color: rgb(91,103,112);
+    color: white;
     margin: -20px;
     padding: 30px;
   }

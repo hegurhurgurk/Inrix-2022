@@ -34,7 +34,14 @@ export class AppComponent implements AfterViewInit{
       y=test[i].stop_lon
       this.addMarker(2,{lat: x, lng: y}, this.map);
     }
-   
+    test = require('./busData.json') 
+    let dataLength=test.length as Number 
+    var busData:Number[][]=[];
+    for (let i=0;i<dataLength; i++){
+        busData.push([test[i].latitude, test[i].longitude, test[i].frequency]);
+        
+    }
+    console.log(busData);
  } 
 
   addMarker(color: any,position: any, map: any) {

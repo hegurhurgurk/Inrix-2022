@@ -1,7 +1,28 @@
 import fetch from "node-fetch";
+//import data from './busData.json';
+import fs from "fs";
+
 async function displayer(){
   var token = await getToken() // to help us see what values we are getting
   document.getElementById("change").innerHTML = token;
+}
+
+async function theBus(){
+  //let test = require("./busData.json")
+  let test;
+   fs.readFile('./busData.json', (err, jsonString) => {
+     test = JSON.parse(jsonString);
+     console.log(test);
+  
+  let dataLength = test.length;  
+  let busData=[];
+  for (let i=0;i<dataLength; i++){
+      busData.push([test[i].latitude, test[i].longitude, test[i].frequency]);
+      
+  }
+  console.log(busData);
+  return busData;
+});
 }
 
 async function getToken(){
@@ -142,7 +163,7 @@ async  function passer(){
   return finalComp;
 }
 
-passer();
+theBus();
 //get the bus stop info
   //info gotten is x and y and the frequency of busses
 //run trade areas for poi

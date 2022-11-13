@@ -25,8 +25,17 @@ export class AppComponent implements AfterViewInit{
     this.map = new google.maps.Map(this.mapElement.nativeElement,    mapProperties);
     this.addMarker(1,{ lat: 37.7749, lng: -122.4194}, this.map);
     this.addMarker(2,{ lat: 37.7750, lng: -122.4194}, this.map);
-    
- }
+    var test = require('./stopsjson.json');
+    console.log(test.length)
+    let x=0
+    let y=0
+    for (let i=0;i<test.length;i++){
+      x=test[i].stop_lat
+      y=test[i].stop_lon
+      this.addMarker(2,{lat: x, lng: y}, this.map);
+    }
+   
+ } 
 
   addMarker(color: any,position: any, map: any) {
     if (color==1){

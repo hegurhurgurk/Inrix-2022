@@ -49,7 +49,8 @@ async function getToken(){
 }
 
  async function getTrips(latlong){
-  const response = await fetch("http://localhost:8000/gettrips?latlong=" + latlong);
+  const response = await fetch("http://localhost:8000/gettrips?latlong=" + latlong+"");
+  console.log(response);
   const json = await response.json(); //receive Inrix trip data based on given latitude and longitude values
   return json;
 }
@@ -76,8 +77,10 @@ async function getToken(){
      // console.log(result);
       let arr =[];
       let i=0;
+      
       for(let poi of result){
           let loc = [];
+         
           loc[1]= poi.point.lon;
           loc[0]=poi.point.lat;
           arr[i]=loc;
@@ -92,12 +95,10 @@ async function getToken(){
       let pop = []
       let i=0;
       for(let l of pois ){
-          let info = []
-          info[0]=l[0];
-          info[1]=l[1];
-          let res =await getTrips(l[0].toString()+"%7C"+l[1].toString());
-          info[2]=res.data.length;
-          pop[i]=info;
+        
+          let res =await getTrips(l[0].toString()+"0x7C"+l[1].toString());
+          l[2]=res.data.length;
+          pop[i]=l;
           i++
       }
       return pop

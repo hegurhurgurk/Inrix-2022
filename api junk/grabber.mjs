@@ -29,6 +29,17 @@ async function theBus(){
   const require = createRequire(import.meta.url);
   const busData = require("./busData.json");
   console.log(busData);
+  let arr=[]
+  let i=0;
+  for (let b of busData){
+    let info=[];
+    info[0]=b.latitude;
+    info[1]=b.longitude;
+    info[2]=b.frequency;
+    arr[i]=info;
+    i++;
+  }
+
 }
 
 async function getToken(){
@@ -169,7 +180,7 @@ async  function passer(){
   return finalComp;
 }
 
-theBus();
+passer();
 //get the bus stop info
   //info gotten is x and y and the frequency of busses
 //run trade areas for poi

@@ -1,6 +1,7 @@
 import fetch from "node-fetch";
 //import data from './busData.json';
 import fs from "fs";
+import { createRequire } from "module";
 
 async function displayer(){
   var token = await getToken() // to help us see what values we are getting
@@ -8,21 +9,26 @@ async function displayer(){
 }
 
 async function theBus(){
-  //let test = require("./busData.json")
-  let test;
-   fs.readFile('./busData.json', (err, jsonString) => {
-     test = JSON.parse(jsonString);
-     console.log(test);
-  
-  let dataLength = test.length;  
-  let busData=[];
-  for (let i=0;i<dataLength; i++){
-      busData.push([test[i].latitude, test[i].longitude, test[i].frequency]);
+ // let test = require("./busData.json")
+  // let test;
+  // console.log("hi");
+  //  fs.readFile('./busData.json', function(err, jsonString) => {
+  //    test = JSON.parse(jsonString);
+  //    console.log(test);
+  //   });
+  // let dataLength = test.length;  
+  // let busData=[];
+  // for (let i=0;i<dataLength; i++){
+  //     busData.push([test[i].latitude, test[i].longitude, test[i].frequency]);
       
-  }
+  // }
+  // console.log(busData);
+  // return busData;
+  console.log("hi");
+  
+  const require = createRequire(import.meta.url);
+  const busData = require("./busData.json");
   console.log(busData);
-  return busData;
-});
 }
 
 async function getToken(){

@@ -9,28 +9,9 @@ async function displayer(){
 }
 
 async function theBus(){
-  //let test = require("./busData.json")
-  
-  let test = JSON.parse(await fs.readFile('./busData.json'));
-   //fs.readFile('./busData.json', (err, jsonString) => {
-   //  test = JSON.parse(jsonString);
-     console.log(test);
-  
-  let dataLength = test.length;  
-  let busData=[];
-  for (let i=0;i<dataLength; i++){
-      busData.push([test[i].latitude, test[i].longitude, test[i].frequency]);
-      
-   }
-  // console.log(busData);
-  // return busData;
-  console.log("hi");
-  
   const require = createRequire(import.meta.url);
   const busData = require("./busData.json");
   console.log(busData);
-  return busData;
-//});
   let arr=[]
   let i=0;
   for (let b of busData){
@@ -41,7 +22,7 @@ async function theBus(){
     arr[i]=info;
     i++;
   }
-
+  return arr;
 }
 
 async function getToken(){
@@ -52,8 +33,9 @@ async function getToken(){
 
  async function getTrips(latlong){
   const response = await fetch("http://localhost:8000/gettrips?latlong=" + latlong+"");
-  console.log(response);
+ 
   const json = await response.json(); //receive Inrix trip data based on given latitude and longitude values
+  console.log(json);
   return json;
 }
 
@@ -98,7 +80,7 @@ async function getToken(){
       let i=0;
       for(let l of pois ){
         
-          let res =await getTrips(l[0].toString()+"0x7C"+l[1].toString());
+          let res =await getTrips(l[0].toString()+"|"+l[1].toString());
           l[2]=res.data.length;
           pop[i]=l;
           i++

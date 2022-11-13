@@ -9,9 +9,10 @@ async function displayer(){
 
 async function theBus(){
   //let test = require("./busData.json")
-  let test;
-   fs.readFile('./busData.json', (err, jsonString) => {
-     test = JSON.parse(jsonString);
+  
+  let test = JSON.parse(await fs.readFile('./busData.json'));
+   //fs.readFile('./busData.json', (err, jsonString) => {
+   //  test = JSON.parse(jsonString);
      console.log(test);
   
   let dataLength = test.length;  
@@ -22,7 +23,7 @@ async function theBus(){
   }
   console.log(busData);
   return busData;
-});
+//});
 }
 
 async function getToken(){

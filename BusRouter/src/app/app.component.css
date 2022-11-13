@@ -5,14 +5,16 @@ h1 {
     color: white;
     margin: -20px;
     padding: 30px;
+    text-align: center;
+    text-decoration: underline;
 }
   
   p {
     color: white;
-    margin: -20px;
-    padding: 30px;
+    padding: 10px;
+    text-align: center;
   }
 body {
-    margin: -20px;
-    padding: 30px;
+    margin: -10px;
+    
 }

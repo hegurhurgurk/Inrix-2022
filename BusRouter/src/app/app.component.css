@@ -1,0 +1,18 @@
+body {
+    background-color: rgb(179, 7, 56);
+  }
+h1 {
+    color: rgb(91,103,112);
+    margin: -20px;
+    padding: 30px;
+}
+  
+  p {
+    color: rgb(91,103,112);
+    margin: -20px;
+    padding: 30px;
+  }
+body {
+    margin: -20px;
+    padding: 30px;
+}

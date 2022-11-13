@@ -88,6 +88,7 @@
                 b[3]=b[2]/(min/5);
             }
         }
+        return finalList;
             //run distance for each demand
             //if the distance is within range add the demand to the busses
         //compute and save the difference format: [lat, lon, difference]
@@ -98,7 +99,7 @@
     let demand = await crowds(pois);
     let busses = await theBus();
     let finalComp= compute(busses, demand);
-
+    return finalComp;
   }
 //get the bus stop info
     //info gotten is x and y and the frequency of busses

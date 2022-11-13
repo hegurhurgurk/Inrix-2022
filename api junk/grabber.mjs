@@ -5,9 +5,6 @@ async function displayer(){
 }
 
 async function getToken(){
-  // fetch('http://localhost:8000/gettoken')
-  //   .then((response) => {return response.json();})
-  //   .then((json) => {token = json})
   const response = await fetch('http://localhost:8000/gettoken');
   const json = await response.json();
   return json.token;
@@ -16,3 +13,10 @@ async function getToken(){
 (async () => {
   console.log(await getToken())
 })();
+
+async function getTrips(adskjf, asidnf){
+  let url = "skjdfhasd0" + asfja +" asdjfha";
+  const response = await fetch(url);
+  const json = await response.json();
+  
+}
